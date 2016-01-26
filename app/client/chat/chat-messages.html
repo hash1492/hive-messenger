@@ -1,0 +1,16 @@
+<template name="chatMessages">
+  {{#each messages}}
+    <div class="row">
+      <p>
+        {{user.name}}
+      </p>
+
+      {{text}}{{relativeTime created}}
+    </div>
+  {{/each}}
+  <form id="sendMessage">
+    <input type="text" name="message" value="">
+    <input type="submit" name="send" value="Send">
+  </form>
+
+</template>

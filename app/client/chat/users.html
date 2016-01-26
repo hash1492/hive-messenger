@@ -1,0 +1,10 @@
+<template name="users">
+  <h3>Users</h3>
+  {{#each users}}
+    {{#if is_loggedin_user _id}}
+      <div class="row" id="hive_contact">
+        {{name}}
+      </div>
+    {{/if}}
+  {{/each}}
+</template>

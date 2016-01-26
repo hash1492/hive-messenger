@@ -1,0 +1,22 @@
+<head>
+  <title>hive-messenger</title>
+</head>
+
+<body>
+
+
+</body>
+
+<template name="base">
+  <div>
+    <h1>Hive Messenger</h1>
+    {{#if hive_user}}
+      <h4>{{hive_user.name}}</h4>
+
+      <button id="logout" type="button" name="button">Logout</button>
+    {{/if}}
+  </div>
+
+  {{> yield}}
+
+</template>

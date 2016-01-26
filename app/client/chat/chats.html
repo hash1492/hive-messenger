@@ -1,0 +1,15 @@
+<template name="chats">
+  <!-- <input type="text" id="search" name="search" placeholder="Search..." value="">
+  <button type="button" id="create_chat" name="create_chat">+</button> -->
+
+  <h3>Chats</h3>
+  {{#each chats}}
+    {{#if show_chat this}}
+      <div class="row">
+        <p>
+          {{chat_box_name this}}
+        </p>
+      </div>
+    {{/if}}
+  {{/each}}
+</template>
