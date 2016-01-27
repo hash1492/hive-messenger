@@ -10,6 +10,7 @@ Template.register.events({
     user.password = event.target.password.value;
     user.confirm_password = event.target.confirm_password.value;
 
+    // Validations
     if(user.name.length === 0){
       toastr.error("Name is required");
       return;
@@ -55,7 +56,7 @@ Template.register.events({
 
 Template.register.onCreated(function(){
   if(Session.get("hive_user")){
-    Router.go("/chats");
+    Router.go("/dashboard");
     return;
   }
 })

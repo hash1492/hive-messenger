@@ -73,6 +73,7 @@ stratogee:relative-time@1.0.0
 templating@1.1.5
 templating-tools@1.0.0
 tracker@1.0.9
+twbs:bootstrap@3.3.6
 u2622:persistent-session@0.4.4
 ui@1.0.8
 underscore@1.0.4

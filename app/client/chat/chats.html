@@ -1,15 +1,26 @@
 <template name="chats">
-  <!-- <input type="text" id="search" name="search" placeholder="Search..." value="">
-  <button type="button" id="create_chat" name="create_chat">+</button> -->
 
-  <h3>Chats</h3>
-  {{#each chats}}
-    {{#if show_chat this}}
-      <div class="row">
-        <p>
-          {{chat_box_name this}}
-        </p>
+  <div class="container">
+    <!-- <input type="text" id="search" name="search" placeholder="Search..." value="">
+    <button type="button" id="create_chat" name="create_chat">+</button> -->
+
+    <h4>{{hive_user.name}}</h4>
+    <button id="logout" type="button" name="button">Logout</button>
+
+    <div>
+      <h3>Chats</h3>
+      <div class="list-group">
+        {{#each chats}}
+          {{#if show_chat this}}
+            <a href="" class="list-group-item" id="chat_box">
+              <h4 class="list-group-item-heading">{{chat_box_name this}}</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          {{/if}}
+        {{/each}}
       </div>
-    {{/if}}
-  {{/each}}
+    </div>
+
+  </div>
+
 </template>

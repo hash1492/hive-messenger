@@ -1,10 +1,19 @@
 <template name="users">
-  <h3>Users</h3>
-  {{#each users}}
-    {{#if is_loggedin_user _id}}
-      <div class="row" id="hive_contact">
-        {{name}}
-      </div>
-    {{/if}}
-  {{/each}}
+
+  <div class="container">
+    <h4>{{hive_user.name}}</h4>
+    <button id="logout" type="button" name="button">Logout</button>
+    <div>
+      <h3>Users</h3>
+      {{#each users}}
+        {{#if is_loggedin_user _id}}
+          <div class="row" id="hive_contact">
+            {{name}}
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+
+
 </template>

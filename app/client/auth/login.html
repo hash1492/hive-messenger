@@ -1,8 +1,22 @@
 <template name="login">
-  <form id="login-form">
-    <input type="email" placeholder="Email" name="email" value="">
-    <input type="password" placeholder="Password" name="password" value="">
-    <input type="submit" name="login" value="Login">
-    <a href="/register" >New User? Register</a>
-  </form>
+  <div class="container">
+
+    <div class="center-form">
+      <h1 class="hive-title">Hive Messenger</h1>
+      <div class="login-form">
+        <form id="login-form" class="hive-form">
+          <h2 class="text-center">Login</h2>
+          <input type="email" class="form-control" placeholder="Email" name="email" value="">
+          <br>
+          <input type="password" class="form-control" placeholder="Password" name="password" value="">
+          <br>
+          <input type="submit" class="form-control hive-button" name="login" value="Login">
+          <br>
+          <a href="/register">New User? Register</a>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
 </template>

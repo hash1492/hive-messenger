@@ -8,7 +8,8 @@ Template.users.helpers({
 
   is_loggedin_user: function(user_id) {
     return Session.get("hive_user")._id !== user_id;
-  }
+  },
+
 });
 
 Template.users.events({
@@ -52,6 +53,12 @@ Template.users.events({
     }
     // Go to chat box
     Router.go("/chat-messages/" + chat_id);
+  },
+  // Logout the current user
+  "click #logout": function(event, template) {
+    console.log("logout called");
+    Session.clear();
+    Router.go('/login');
   }
 });
 

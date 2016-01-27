@@ -1,1 +1,153 @@
 /* CSS declarations go here */
+
+body {
+  background-color: #79589f;
+  color: #fff;
+}
+h1 { color: #000000; }
+.center-form{
+  margin-top:100px;
+}
+
+.hive-title{
+  color: #fff;
+  text-align: center;
+}
+
+.hive-bar-title{
+  font-size: 1.5em;
+  padding: 10px;
+  display: inline-block;
+}
+
+.hive-bar-menu{
+  float:right;
+  padding: 10px;
+}
+
+.loggedin-user{
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+
+.dashboard-body{
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  width: 100%;
+}
+
+.white-text {
+  color:#fff;
+}
+
+.hive-form {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.hive-button{
+  color:#fff;
+  background-color: #79589f;
+}
+
+
+.login-form {
+  width: 500px;
+  min-height: 300px;
+  margin: 0px auto;
+  background-color: #fff;
+  color: #79589f;
+  border-radius: 5px;
+}
+
+
+/*Chat List*/
+.nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    width: 50%;
+    text-align: center;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    background-color: #79589f;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.chats-users-section{
+  border: 1px solid #ddd;
+  margin-top: 30px;
+  height: 550px;
+  overflow: auto;
+}
+.chat-messages-section{
+  border: 1px solid #ddd;
+  margin-top: 30px;
+  height: 550px;
+  padding: 20px;
+}
+
+.messages-area {
+  overflow: auto;
+  padding: 15px;
+  height: 450px;
+}
+
+.my-message {
+  float: right;
+  color: black;
+  background-color: #79589f;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.others-message {
+  float: left;
+  color: black;
+  background-color: lightgrey;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.chat-person {
+  font-weight: bold;
+}
+
+.message-time{
+  font-size: 0.8em;
+  display: block;
+}
+
+.select-chat-message {
+  color: #999;
+  text-align: center;
+}
+
+.chat-input-footer {
+  position: absolute;
+  bottom: 0;
+  margin: 20px;
+  color: black;
+}
+
+.chat-input {
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chat-input-send {
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  background-color: #fff;
+}

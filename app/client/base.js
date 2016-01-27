@@ -7,9 +7,13 @@ Template.body.events({
   }
 })
 
-// Global hive_user object
-Template.body.helpers({
-  "hive_user": function() {
+// // Global hive_user object
+// Template.body.helpers({
+//   "hive_user": function() {
+//     return Session.get("hive_user");
+//   }
+// })
+
+Handlebars.registerHelper('hive_user', function (){
     return Session.get("hive_user");
-  }
-})
+});

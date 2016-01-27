@@ -1,9 +1,31 @@
 <template name="register">
-  <form id="registration-form">
+  <!-- <form id="registration-form">
     <input type="text" placeholder="Name" name="name" value="">
     <input type="email" placeholder="Email" name="email" value="">
     <input type="password" placeholder="Password" name="password" value="">
     <input type="password" placeholder="Confirm Password" name="confirm_password" value="">
     <input type="submit" name="register" value="Register">
-  </form>
+  </form> -->
+
+
+  <div class="center-form">
+    <h1 class="hive-title">Hive Messenger</h1>
+    <div class="login-form">
+      <form id="registration-form" class="hive-form">
+        <h2 class="text-center">Register</h2>
+        <input class="form-control" type="text" placeholder="Name" name="name" value="">
+        <br>
+        <input class="form-control" type="email" placeholder="Email" name="email" value="">
+        <br>
+        <input class="form-control" type="password" placeholder="Password" name="password" value="">
+        <br>
+        <input class="form-control" type="password" placeholder="Confirm Password" name="confirm_password" value="">
+        <br>
+        <input class="form-control hive-button" type="submit" name="register" value="Register">
+        <br>
+        <a href="/login">Existing User? Login</a>
+      </form>
+    </div>
+  </div>
+
 </template>

@@ -8,6 +8,16 @@ Template.login.events({
     user_credentials.password = event.target.password.value;
     console.log(user_credentials);
 
+    // Validations
+    if(user_credentials.email.length === 0){
+      toastr.error("Email is required");
+      return;
+    }
+    if(user_credentials.password.length === 0){
+      toastr.error("Password is required");
+      return;
+    }
+
     // Check if this user exists
     var user = Users.findOne({email: user_credentials.email});
     toastr.clear();
@@ -20,7 +30,7 @@ Template.login.events({
         toastr.success("Welcome " + user.name + "!");
         Session.setPersistent('hive_user', user);
         console.log(Session.get('hive_user'));
-        Router.go('/chats');
+        Router.go("/dashboard");
       }
       else{
         toastr.error("The password is incorrect");
@@ -31,8 +41,9 @@ Template.login.events({
 })
 
 Template.login.onCreated(function(){
+  console.log("login");
   if(Session.get("hive_user")){
-    Router.go("/chats");
+    Router.go("/dashboard");
     return;
   }
 })

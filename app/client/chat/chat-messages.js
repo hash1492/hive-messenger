@@ -36,10 +36,17 @@ Template.chatMessages.events({
     // Update DB
     var chat = Chats.update({_id: Session.get("chat_box_id")}, Session.get("current_chat"));
     event.target.message.value = "";
+  },
+  // Logout the current user
+  "click #logout": function(event, template) {
+    console.log("logout called");
+    Session.clear();
+    Router.go('/login');
   }
 })
 
 Template.chatMessages.onCreated(function(){
+  console.log("chatMessages called");
   if(!Session.get("hive_user")){
     Router.go("/login");
     return;

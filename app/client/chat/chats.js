@@ -32,13 +32,15 @@ Template.chats.helpers({
     else{
       false;
     }
-  }
+  },
+
 });
 
 Template.chats.events({
-  "click .row": function(event, template) {
+  "click #chat_box": function(event, template) {
     console.log(this);
     Router.go('/chat-messages/' + this._id);
+    console.log("Test");
   },
 
   "keyup #search": function(event, template) {
@@ -52,6 +54,12 @@ Template.chats.events({
 
   "click #create_chat": function(event, template) {
     console.log("create_chat clicked");
+  },
+  // Logout the current user
+  "click #logout": function(event, template) {
+    console.log("logout called");
+    Session.clear();
+    Router.go('/login');
   }
 });
 

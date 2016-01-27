@@ -1,0 +1,95 @@
+<template name="dashboard">
+
+  <header>
+    <div class="hive-bar-title">
+      Hive Messenger
+    </div>
+    <div class="hive-bar-menu">
+      <ul>
+        <li style="list-style-type: none;display: inline-block;">
+          <div class="loggedin-user">
+            {{hive_user.name}}
+          </div>
+        </li>
+        <li style="display: inline-block;padding-left: 5px;">
+          <button id="logout" class="form-control" type="button" name="button">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="dashboard-body">
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- ============Chat/Users Section========== -->
+        <div class="col-md-6 chats-users-section">
+          <ul class="nav nav-tabs">
+            <li id="chats_tab" class="{{#if chats_tab_active}} active {{/if}}"><a href="">Chats</a></li>
+            <li id="users_tab" class="{{#if users_tab_active}} active {{/if}}"><a href="">Users</a></li>
+          </ul>
+          <!-- List of Chats -->
+          {{#if chats_tab_active}}
+            <div class="list-group">
+              {{#each chats}}
+                {{#if show_chat this}}
+                  <a href="" class="list-group-item" id="chat_box">
+                    <h4 class="list-group-item-heading">{{chat_box_name this}}</h4>
+                    <p class="list-group-item-text">{{last_message this}}</p>
+                  </a>
+                {{/if}}
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <!-- List of Users -->
+          {{#if users_tab_active}}
+            <div class="list-group">
+              {{#each users}}
+                {{#if is_loggedin_user _id}}
+                  <a href="" class="list-group-item" id="hive_contact">
+                    <h4 class="list-group-item-heading">{{name}}</h4>
+                  </a>
+                {{/if}}
+              {{/each}}
+            </div>
+          {{/if}}
+        </div>
+
+        <!-- ============Chat Messages Section========== -->
+        <div class="col-md-6 chat-messages-section">
+          {{#if show_messages}}
+            <div class="messages-area" id="messages-area">
+              {{#each messages}}
+                <div class="row" >
+                  <span class="{{#if is_my_message this}}my-message{{/if}}{{#if is_others_message this}}others-message{{/if}}">
+                    <p class="chat-person">
+                      {{user.name}}
+                    </p>
+                    <span class="chat-message">
+                      {{text}}
+                    </span>
+                    <span class="message-time">{{relativeTime created}}</span>
+                  </span>
+                </div>
+              {{/each}}
+            </div>
+            <form id="sendMessage">
+              <div class="chat-input-footer">
+                <input class="chat-input" type="text" name="message" value="">
+                <input class="chat-input-send" type="submit" name="send" value="Send">
+              </div>
+            </form>
+          {{/if}}
+          {{#if show_select_chat_message}}
+            <div class="select-chat-message">
+              Select a chat box or user
+            </div>
+          {{/if}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
