@@ -39,7 +39,6 @@ Template.register.events({
 
     // Create User
     var created_user = Users.insert(user);
-    console.log(created_user);
 
     // Add the user to global chat
     var global_chat = Chats.findOne({type: 2});

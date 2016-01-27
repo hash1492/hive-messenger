@@ -1,9 +1,11 @@
 Template.dashboard.helpers({
+  // Is users tab active
   users_tab_active: function() {
     if(Session.get("users_tab_active") === true){
       return true;
     }
   },
+  // Is chats tab active
   chats_tab_active: function() {
     if(Session.get("chats_tab_active") === true){
       return true;
@@ -12,17 +14,14 @@ Template.dashboard.helpers({
   // List of chats
   chats: function() {
     var chats = Chats.find({users: {$elemMatch: { _id: Session.get("hive_user")._id }}}).fetch();
-    console.log(chats);
     return chats;
   },
   // Name to show for each chatbox
   chat_box_name: function(chat) {
-    console.log(chat);
     // If direct chat, show other user's name
     if(chat.type == 1){
       chat.users.forEach(function(user) {
         if(user._id !== Session.get("hive_user")._id){
-          console.log(user.name);
           chat_box_name = user.name
         }
       })
@@ -32,7 +31,7 @@ Template.dashboard.helpers({
     }
     return chat_box_name;
   },
-
+  // Whether to show the chat in the chats list or not
   show_chat: function(chat) {
     if(chat.type == 2){
       return true;
@@ -56,9 +55,6 @@ Template.dashboard.helpers({
       Session.set("messages", messages);
       return messages;
     }
-    // else{
-    //   Router.go('/chats');
-    // }
   },
   // Check if the message is of currently loggedin user
   is_my_message: function(message) {
@@ -67,12 +63,14 @@ Template.dashboard.helpers({
       return true;
     }
   },
+  // Check if the message is of the other user
   is_others_message: function(message) {
     console.log(message);
     if(message.user._id !== Session.get("hive_user")._id){
       return true;
     }
   },
+  // last message chat to display as preview
   last_message: function(chat) {
     return chat.messages[chat.messages.length - 1].text;
   },
@@ -99,7 +97,6 @@ Template.dashboard.helpers({
   // List of hive messenger users
   users: function() {
     var users = Users.find().fetch();
-    console.log(users);
     return users;
   },
 });
@@ -107,7 +104,6 @@ Template.dashboard.helpers({
 Template.dashboard.events({
   // Logout the current user
   "click #logout": function(event, template) {
-    console.log("logout called");
     Session.clear();
     Router.go('/login');
   },
@@ -123,14 +119,10 @@ Template.dashboard.events({
   },
   // Select a chatbox to show
   "click #chat_box": function(event, template) {
-    console.log(this);
     Session.set("active_chat_box", this);
-    console.log("Test");
     $("#messages-area").scrollTop($("#messages-area")[0].scrollHeight);
   },
   "click #hive_contact": function(event, template) {
-    console.log(this);
-
     var chat_users = [];
     var user1 = {
       _id: this._id,
@@ -147,10 +139,8 @@ Template.dashboard.events({
     // Create/ Open direct chat between you and the selected user
     var chat = Chats.findOne({type: 1, users: {$elemMatch: { _id: user1._id  && user2._id }}});
 
-    console.log(chat);
     // If no direct chat exists with the selected user, create one
     if(!chat){
-      console.log("new chat");
       var chat_obj = {
         type: 1,
         users: chat_users,
@@ -165,7 +155,6 @@ Template.dashboard.events({
     }
     // Chat exists
     else{
-      console.log("existing chat");
       var active_chat_obj = chat;
     }
     // Set active chat box
